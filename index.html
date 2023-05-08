@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂🥳Clara Birthday🥳🎂</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: fixed;
+        }
+        .container {
+        display: grid;
+        align-items: center; 
+        grid-template-columns: 1fr 1fr 1fr;
+        }
+        img{
+            position: absolute;
+            top: 0px;
+        }
+        #bg_clara01{
+            left: 0;
+        }
+        #bg_clara02{
+            left: 1013px;
+        }
+        #bird{
+            width: 100px;
+            height: 75px;
+            top: 200px;
+            left: 130px;
+        }
+        h2{
+            font-family: 'Poppins', sans-serif;
+            font-size: 50px;
+            margin: auto;
+            padding: 0;
+            box-sizing: border-box;
+            color: transparent;
+            -webkit-text-stroke: 0.5vw #9cd8b5;
+            text-align: center;
+            position: absolute;
+            width: 380px;
+        }
+        canvas{
+            position: fixed;
+        }
+        #p{
+            position: absolute;
+            height: 170px;
+            width: 200px;
+            background-color: #9cd8b5;
+            border-radius: 10px;
+            padding-top: 10px;
+            padding-left: 5px;
+            margin-top: 380px;
+            margin-left: 90px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13.88px
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="spr_bgclara.png" id="bg_clara01">
+        <img src="spr_bgclara.png" id="bg_clara02">
+        <img src="spr_bird01.png" id="bird">
+    </div>
+    <h2>PARABÉNS CLARA</h2>
+    <p id="p">Você é uma pessoa: linda, perfeita, gatinha, cara de sarigue, maravilhosa, gatosa, ja disse perfeita? Enfim vc é uma pessoa incrivel e mereçe todo esse esforço nesse site e mais um pouco BIXA LINDA</p>
+    <canvas id="my-canvas"></canvas>
+    <script src="index.min.js"></script>
+    <script>
+        let bg_clara_width = -1013
+        function sleep(ms){
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+        async function Tutor(){
+            while (true){
+                for(x = 0; x > bg_clara_width; x -= 1){
+                    document.getElementById("bg_clara01").style = `left: ${x}px;`
+                    document.getElementById("bg_clara02").style = `left: ${1013 + x}px;`
+                    await sleep(5);
+                }
+        }
+        }
+        async function Tutor2(){
+            while (true){
+                for(i = 0; i < 15; i++){
+                    if (i >= 0 && i < 5){
+                        document.getElementById("bird").src = "spr_bird01.png"
+                    }
+                    if (i >= 5 && i < 10){
+                        document.getElementById("bird").src = "spr_bird02.png"
+                    }
+                    if (i >= 10){
+                        document.getElementById("bird").src = "spr_bird03.png"
+                    }
+                    await sleep(80)
+                }
+        }
+        }
+        Tutor()
+        Tutor2()
+        var confettiSettings = { target: 'my-canvas' };
+        var confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+        let audio = new Audio('musica.mp3')
+        audio.play()
+    </script>
+</body>
+</html>
